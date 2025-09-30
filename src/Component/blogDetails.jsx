@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
 import BaseUrl from '../BaseUrl';
+import Navbar from './NavBar';
 
 const BlogDetails = () => {
     const [blog, setBlog] = useState(null);
@@ -41,6 +42,13 @@ const BlogDetails = () => {
     };
 
     return (
+        <>
+                 {/* <div className='head'>
+                <Navbar/>
+                    <p className='text-white text-[4em] font-bold py-14 uppercase text-center'>Blog App</p>
+        
+                </div>
+                 */}
         <div className="min-h-screen bg-gray-100">
             {isLoading ? (
                 <div className="flex justify-center items-center h-64">
@@ -89,6 +97,7 @@ const BlogDetails = () => {
                 </div>
             )}
         </div>
+        </>
     );
 };
 

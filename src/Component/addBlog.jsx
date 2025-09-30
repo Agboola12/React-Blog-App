@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import BaseUrl from '../BaseUrl';
+import Navbar from './NavBar';
 
 const AddBlog = () => {
     const navigate = useNavigate();
@@ -23,7 +24,6 @@ const AddBlog = () => {
     const FetchData = (id) => {
         axios.get(`${BaseUrl}blogs/${id}`)
             .then(res => {
-                // console.log("Fetched blog:", JSON.stringify(res.data, null, 2));
                 if (res.data.status) {
                     setUser({
                         title: res.data.data.title,
@@ -109,9 +109,16 @@ const AddBlog = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-                <h2 className="text-3xl text-gray-800 text-center font-bold mb-6">
+        <>
+        <div className='head'>
+        <Navbar/>
+            <p className='text-white text-[4em] font-bold py-14 uppercase text-center'>Blog App</p>
+
+        </div>
+        
+        <div className="flex items-center justify-center min-h-screen bg-gray-200 ">
+            <div className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md">
+                <h2 className="text-3xl uppercase text-blue-800 text-center font-bold mb-6">
                     {searchParams.get('id') ? 'Edit Blog' : 'Add Blog'}
                 </h2>
                 {message && <p className="text-center text-red-500 mb-4">{message}</p>}
@@ -141,6 +148,7 @@ const AddBlog = () => {
                             rows="5"
                             required
                         />
+                       
                     </div>
                     <div>
                         <label htmlFor="cover_image" className="block text-gray-700 text-xl font-bold">Cover Image</label>
@@ -155,19 +163,14 @@ const AddBlog = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-blue-800 text-white text-xl font-bold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                        className="w-full bg-white border-2 border-blue-800 text-blue-800 text-xl font-bold py-3 px-4 rounded-md hover:bg-blue-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50"
                     >
                         Submit
                     </button>
-                    <Link
-                        to="/view-blog"
-                        className="block w-full text-center bg-gray-500 text-white text-xl font-bold py-2 px-4 rounded-md mt-2 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
-                    >
-                        View Blogs
-                    </Link>
                 </form>
             </div>
         </div>
+        </>
     );
 };
 
