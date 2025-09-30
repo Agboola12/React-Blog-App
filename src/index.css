@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body{
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 7)),url("./assets/top.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+} */
