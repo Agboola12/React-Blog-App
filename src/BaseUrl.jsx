@@ -1,6 +1,6 @@
- 
-let BaseUrl = "http://127.0.0.1:8000/api/"
 
+
+const BaseUrl = 'http://localhost:8000/api/'; // Adjust to your Laravel API URL
 
 
 export default BaseUrl;
